@@ -32,9 +32,49 @@ int main()
 
 	// PRINT FROM HERE....
 	/*
-		(name header)
-	*/
+		Badajoz, Seve
 
+		CS A200
+		April 11, 2018
+
+		Lab 5
+	*/
+	int numAdded = 0, j = 0, digit = 0, modBy = 1;
+	int *movingPtr = nullptr;
+	// O(n * k)
+	// n is numOfElements and k is digits
+	// We will always look at all k digits
+	for (int i = 0; i < digits; ++i) { //looking at each digit
+		modBy *= 10;
+		numAdded = 0;
+		j = 0;
+
+		cout << "Pass " << (i + 1) << ": ";
+
+		// O(10 * n) -> O(n)
+		// n is numOfElements
+		// Worst case scenario we look at all 10 digits(0-9)
+		while(j < 10 && numAdded < numOfElements) { //looking at each number (0-9) until either each number is looked at or all elements have been moved
+			// O(n)
+			// n is numOfElements
+			// Worst case scenario is we search the most significant figure in every element in the array for the number(0-9) 
+			for (int elemNum = 0; elemNum < numOfElements; ++elemNum) { //looking at each element
+				digit = a1[elemNum] % modBy;
+				if (digit == j) { //if the digit we're viewing is the same as the number move the element over to a2
+					a2[numAdded++] = a1[elemNum];
+				}
+			}
+			++j;
+		}
+		print(a2, numOfElements);
+		cout << endl;
+		movingPtr = a1;
+		a1 = a2;
+		a2 = movingPtr;
+	}
+	a2 = a1;
+	
+	
 	
 
 	// END PRINTING HERE... 
