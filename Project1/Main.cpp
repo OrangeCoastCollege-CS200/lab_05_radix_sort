@@ -57,7 +57,7 @@ int main()
 		while(j < 10 && numAdded < numOfElements) { //looking at each number (0-9) until either each number is looked at or all elements have been moved
 			// O(n)
 			// n is numOfElements
-			// Worst case scenario is we search the most significant figure in every element in the array for the number(0-9) 
+			// Worst case scenario is we search every element in the array for the number(0-9) 
 			for (int elemNum = 0; elemNum < numOfElements; ++elemNum) { //looking at each element
 				digit = a1[elemNum] % modBy;
 				if (digit == j) { //if the digit we're viewing is the same as the number move the element over to a2
