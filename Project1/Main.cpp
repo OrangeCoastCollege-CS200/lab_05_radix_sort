@@ -44,7 +44,7 @@ int main()
 	// O(n * k)
 	// n is numOfElements and k is digits
 	// We will always look at all k digits
-	for (int i = 0; i < digits; ++i) { //looking at each digit
+	for (int i = 0; i < digits; ++i) {
 		numAdded = 0;
 		j = 0;
 
@@ -57,9 +57,9 @@ int main()
 			// O(n)
 			// n is numOfElements
 			// Worst case scenario is we search every element in the array for the number(0-9) 
-			for (int elemNum = 0; elemNum < numOfElements; ++elemNum) { //looking at each element
+			for (int elemNum = 0; elemNum < numOfElements; ++elemNum) { 
 				digit = a1[elemNum] / modBy % 10;
-				if (digit == j) { //if the digit we're viewing is the same as the number move the element over to a2
+				if (digit == j) {
 					a2[numAdded++] = a1[elemNum];
 				}
 			}
