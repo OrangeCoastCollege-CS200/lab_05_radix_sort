@@ -45,7 +45,6 @@ int main()
 	// n is numOfElements and k is digits
 	// We will always look at all k digits
 	for (int i = 0; i < digits; ++i) { //looking at each digit
-		modBy *= 10;
 		numAdded = 0;
 		j = 0;
 
@@ -59,18 +58,20 @@ int main()
 			// n is numOfElements
 			// Worst case scenario is we search every element in the array for the number(0-9) 
 			for (int elemNum = 0; elemNum < numOfElements; ++elemNum) { //looking at each element
-				digit = a1[elemNum] % modBy;
+				digit = a1[elemNum] / modBy % 10;
 				if (digit == j) { //if the digit we're viewing is the same as the number move the element over to a2
 					a2[numAdded++] = a1[elemNum];
 				}
 			}
 			++j;
+			
 		}
 		print(a2, numOfElements);
 		cout << endl;
 		movingPtr = a1;
 		a1 = a2;
 		a2 = movingPtr;
+		modBy = modBy * 10;
 	}
 	a2 = a1;
 	
