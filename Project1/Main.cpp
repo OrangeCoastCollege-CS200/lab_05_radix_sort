@@ -53,7 +53,7 @@ int main()
 		// O(10 * n) -> O(n)
 		// n is numOfElements
 		// Worst case scenario we look at all 10 digits(0-9)
-		while(j < 10 && numAdded < numOfElements) { //looking at each number (0-9) until either each number is looked at or all elements have been moved
+		while(numAdded < numOfElements) { //looking at each number (0-9) until either each number is looked at or all elements have been moved
 			// O(n)
 			// n is numOfElements
 			// Worst case scenario is we search every element in the array for the number(0-9) 
@@ -73,8 +73,10 @@ int main()
 		a2 = movingPtr;
 		modBy = modBy * 10;
 	}
-	a2 = a1;
-	
+	delete[] a1;
+	delete[] a2;
+	a1 = nullptr;
+	a2 = nullptr;
 	
 	
 
